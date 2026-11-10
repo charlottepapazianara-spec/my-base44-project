@@ -1,0 +1,192 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 90;
+  transition: background 0.35s var(--ease), border-color 0.35s var(--ease),
+    backdrop-filter 0.35s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.header.is-scrolled,
+.header.is-open {
+  background: rgba(8, 8, 8, 0.86);
+  backdrop-filter: blur(18px) saturate(140%);
+  border-bottom-color: var(--line);
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--header-h);
+}
+
+.header__brand {
+  flex: none;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.header__link {
+  position: relative;
+  padding: 10px 14px;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(246, 245, 242, 0.72);
+  transition: color 0.2s var(--ease);
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+.header__link:hover,
+.header__link.is-active {
+  color: var(--ink);
+}
+
+.header__link.is-active::after,
+.header__link:hover::after {
+  transform: scaleX(1);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: none;
+}
+
+.header__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  transition: color 0.2s var(--ease);
+}
+
+.header__phone svg {
+  color: var(--gold);
+}
+
+.header__phone:hover {
+  color: var(--ink);
+}
+
+.header__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -8px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.drawer {
+  display: none;
+}
+
+/* The media query below sets `display: flex`, which would otherwise win over the
+   user-agent rule for the `hidden` attribute and keep the drawer permanently
+   visible on tablet/mobile. Keep the attribute authoritative. */
+.drawer[hidden] {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .header__phone {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header__nav {
+    display: none;
+  }
+  .header__toggle {
+    display: inline-flex;
+  }
+  .drawer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    height: calc(100dvh - var(--header-h));
+    padding: 24px var(--gutter) 40px;
+    overflow-y: auto;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .drawer__nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .drawer__link {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .drawer__link:active {
+    color: var(--gold);
+  }
+  .drawer__index {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+  .drawer__footer {
+    display: grid;
+    gap: 18px;
+  }
+  .drawer__phone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .drawer__phone svg {
+    color: var(--gold);
+  }
+}
+
+@media (max-width: 720px) {
+  .header__cta {
+    display: none;
+  }
+  .header__bar {
+    gap: 12px;
+  }
+}
