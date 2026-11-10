@@ -33,7 +33,7 @@ export default function Hero({ onBook }) {
         <img
           src={images.hero}
           alt="Coach spotting an athlete pressing a dumbbell in a dimly lit premium gym"
-          fetchPriority="high"
+          fetchpriority="high"
         />
         <span className="hero__media-scrim" />
       </div>
