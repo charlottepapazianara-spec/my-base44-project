@@ -29,32 +29,29 @@
 .header__nav {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-left: auto;
+  gap: 2px;
+  margin-inline-start: auto;
 }
 
 .header__link {
   position: relative;
-  padding: 10px 14px;
+  padding: 10px 13px;
   font-family: var(--font-display);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(246, 245, 242, 0.72);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(246, 245, 242, 0.74);
   transition: color 0.2s var(--ease);
 }
 
 .header__link::after {
   content: '';
   position: absolute;
-  left: 14px;
-  right: 14px;
+  inset-inline: 13px;
   bottom: 4px;
   height: 1px;
   background: var(--gold);
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: right;
   transition: transform 0.3s var(--ease);
 }
 
@@ -71,17 +68,17 @@
 .header__actions {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   flex: none;
 }
 
 .header__phone {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
+  gap: 7px;
+  font-size: 0.84rem;
   color: var(--muted);
+  direction: ltr;
   transition: color 0.2s var(--ease);
 }
 
@@ -99,7 +96,7 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  margin-right: -8px;
+  margin-inline-end: -8px;
   color: var(--ink);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -147,22 +144,19 @@
   .drawer__link {
     display: flex;
     align-items: baseline;
-    gap: 18px;
-    padding: 18px 0;
+    gap: 14px;
+    padding: 16px 0;
     border-bottom: 1px solid var(--line);
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: clamp(1.15rem, 4.6vw, 1.5rem);
     font-weight: 700;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
   }
   .drawer__link:active {
     color: var(--gold);
   }
   .drawer__index {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
+    font-size: 0.78rem;
+    font-weight: 600;
     color: var(--gold);
   }
   .drawer__footer {
@@ -174,8 +168,9 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: var(--muted);
+    direction: ltr;
   }
   .drawer__phone svg {
     color: var(--gold);

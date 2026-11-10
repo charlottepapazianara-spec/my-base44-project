@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import Icon from './Icon.jsx';
 import { heroFeatures, images, stats } from '../data/content.js';
 import '../styles/hero.css';
@@ -15,12 +15,12 @@ function RotatingBadge() {
         </defs>
         <text className="hero__badge-text">
           <textPath href="#badge-circle" startOffset="0%">
-            TAKE THE FIRST STEP TOWARDS A STRONGER YOU •
+            اولین قدم به سوی نسخهٔ قوی‌تر تو •
           </textPath>
         </text>
       </svg>
       <span className="hero__badge-core">
-        <ArrowUpRight size={22} strokeWidth={1.6} />
+        <ArrowUpRight size={24} strokeWidth={1.6} />
       </span>
     </div>
   );
@@ -32,25 +32,23 @@ export default function Hero({ onBook }) {
       <div className="hero__media">
         <img
           src={images.hero}
-          alt="Coach spotting an athlete pressing a dumbbell in a dimly lit premium gym"
+          alt={images.heroAlt}
           fetchpriority="high"
         />
         <span className="hero__media-scrim" />
+        <RotatingBadge />
       </div>
 
       <div className="container hero__inner">
         <div className="hero__content">
-          <span className="eyebrow">Singapore&rsquo;s premium personal training studio</span>
+          <span className="eyebrow">استودیوی خصوصی تمرین شخصی در سنگاپور</span>
 
           <h1 className="hero__title">
-            Build your
-            <br />
-            <span className="hero__title-accent">stronger</span> self
+            خودِ <span className="hero__title-accent">قوی‌ترت</span> را بساز
           </h1>
 
           <p className="hero__lede">
-            Premium personal training in Singapore designed around{' '}
-            <strong>you.</strong>
+            تمرین شخصی حرفه‌ای در سنگاپور، دقیقاً متناسب با <strong>تو.</strong>
           </p>
 
           <ul className="hero__features">
@@ -64,17 +62,15 @@ export default function Hero({ onBook }) {
 
           <div className="hero__actions">
             <button className="btn" type="button" onClick={onBook}>
-              Book a free consultation
-              <ArrowRight size={16} strokeWidth={2.2} />
+              رزرو مشاورهٔ رایگان
+              <ArrowLeft size={16} strokeWidth={2.2} />
             </button>
             <a className="hero__secondary" href="#programs">
-              Explore programs
-              <ArrowRight size={15} strokeWidth={2} />
+              مشاهدهٔ برنامه‌ها
+              <ArrowLeft size={15} strokeWidth={2} />
             </a>
           </div>
         </div>
-
-        <RotatingBadge />
       </div>
 
       <div className="container hero__stats">
