@@ -1,0 +1,32 @@
+# Development environment for the Base44 sandbox: runs the Vite dev server
+# straight from the bind-mounted source so edits appear in the preview without
+# rebuilding anything.
+services:
+  web:
+    image: node:22-alpine
+    working_dir: /workspace
+    restart: on-failure
+    labels:
+      base44.project: "My Base44 Project"
+      base44.kind: web
+      base44.port: "3000"
+    ports:
+      - "3000:3000"
+    volumes:
+      - "${BASE44_PROJECT_ROOT}:/workspace"
+      - web_node_modules:/workspace/node_modules
+    environment:
+      - BASE44_PREVIEW_MODE
+      - BASE44_SANDBOX_HOST_DOMAIN
+      - BASE44_PUBLIC_HOST_SUFFIX
+      - __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS
+    command: ["sh", "-ec", "npm install --no-audit --no-fund && exec npm run dev"]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      start_period: 90s
+      retries: 6
+
+volumes:
+  web_node_modules:

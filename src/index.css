@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light dark;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.app {
+  width: min(90vw, 42rem);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: 0 auto 2.5rem;
+  max-width: 32rem;
+  color: #94a3b8;
+}
+
+code {
+  padding: 0.1em 0.35em;
+  border-radius: 0.35rem;
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+.card {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  border: 1px solid #1e293b;
+  border-radius: 1rem;
+  background: #111c30;
+}
+
+.count {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  min-width: 2.5ch;
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border: 0;
+  border-radius: 0.6rem;
+  background: #6366f1;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+button:focus-visible {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 3px;
+}
